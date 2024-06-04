@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Lost Kitten</title>
+    <link rel="stylesheet" href="./style.css">
+    <script type="text/javascript" src="./script.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <h1 class="header">A Lost Kitten</h1>
+    <form id="kittenForm">
+        <fieldset>
+            <legend>Enter Details: </legend>
+            
+            <label for="name">Name: </label>
+            <input id="name" type="text" placeholder="Name of Cat" required>
+            <br><br>
+                
+            <label for="breed">Breed: </label>
+            <input id="breed" type="text" placeholder="Breed of Cat" required>
+            <br><br>
+
+            <label for="age">Age: </label>
+            <select id="age" required>
+                <option value="" disabled selected>Select age</option>
+                <option value="1">1 year</option>
+                <option value="2">2 years</option>
+                <option value="3">3 years</option>
+                <option value="4">4 years</option>
+                <option value="5">5 years</option>
+                <!-- Add more options as needed -->
+            </select>
+            <br><br>
+            
+            <label for="imag">Select Image: </label>
+            <input id="imag" type="file" accept="image/*" onchange="previewImage(event);" required>
+            <br>
+            <img id="preview" src="" alt="Image Preview">
+
+            <div class="buttons">
+                <button type="reset">Reset</button>
+                <button type="button" onclick="generatePoster()">Generate Poster</button>
+            </div>
+        </fieldset>
+    </form>
+
+    <div id="poster" class="poster" style="display:none;">
+        <h2>Lost Kitten</h2>
+        <img id="posterImage" src="" alt="Kitten Image">
+        <p><strong>Name:</strong> <span id="posterName"></span></p>
+        <p><strong>Breed:</strong> <span id="posterBreed"></span></p>
+        <p><strong>Age:</strong> <span id="posterAge"></span></p>
+        <button onclick="downloadPoster()">Download Poster</button>
+    </div>
+</body>
+</html>
